@@ -88,7 +88,7 @@ export const Header = () => {
             block
           />
           <NavItem
-            href="https://www.dashboard.bookit.niltonnovele.com"
+            href="https://dashboard.bookit.niltonnovele.com"
             icon={<LogIn size={18} />}
             label="Manage your service"
             textClass="text-orange-600 font-semibold"
