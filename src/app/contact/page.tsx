@@ -5,7 +5,7 @@ export default function ContactPage() {
   // Form states
   const [contact, setContact] = useState({ name: "", email: "", message: "" });
   const [feedback, setFeedback] = useState({ rating: "", comments: "" });
-  const [setContactSent] = useState(false);
+  const [contactSent, setContactSent] = useState(false);
   const [feedbackSent, setFeedbackSent] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -59,7 +59,6 @@ export default function ContactPage() {
     }
     setErrors({});
     setFeedbackSent(true);
-    // Process feedback submission here
     setFeedback({ rating: "", comments: "" });
   }
 
@@ -105,17 +104,13 @@ export default function ContactPage() {
           </div>
 
           <form
-            action="https://formsubmit.co/nilton.novele@gmail.com"
-            method="POST"
+            onSubmit={handleContactSubmit}
+            noValidate
             className="bg-white p-6 rounded-lg shadow space-y-6"
           >
             <h3 className="text-xl font-semibold text-orange-600">
               Send us a message
             </h3>
-
-            {/* Hidden fields (optional) */}
-            <input type="hidden" name="_next" value="" />
-            <input type="hidden" name="_captcha" value="false" />
 
             <div>
               <label
@@ -127,11 +122,16 @@ export default function ContactPage() {
               <input
                 type="text"
                 id="name"
-                name="name"
-                required
+                value={contact.name}
+                onChange={(e) =>
+                  setContact({ ...contact, name: e.target.value })
+                }
                 className="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
                 placeholder="Your full name"
               />
+              {errors.name && (
+                <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+              )}
             </div>
 
             <div>
@@ -144,11 +144,16 @@ export default function ContactPage() {
               <input
                 type="email"
                 id="email"
-                name="email"
-                required
+                value={contact.email}
+                onChange={(e) =>
+                  setContact({ ...contact, email: e.target.value })
+                }
                 className="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
                 placeholder="you@example.com"
               />
+              {errors.email && (
+                <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div>
@@ -160,12 +165,17 @@ export default function ContactPage() {
               </label>
               <textarea
                 id="message"
-                name="message"
-                required
+                value={contact.message}
+                onChange={(e) =>
+                  setContact({ ...contact, message: e.target.value })
+                }
                 rows={4}
                 className="mt-1 block w-full rounded-md border px-3 py-2 shadow-sm border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
                 placeholder="Write your message here..."
               />
+              {errors.message && (
+                <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+              )}
             </div>
 
             <button
@@ -174,6 +184,14 @@ export default function ContactPage() {
             >
               Send Message
             </button>
+            {errors.form && (
+              <p className="text-red-600 text-center mt-2">{errors.form}</p>
+            )}
+            {contactSent && (
+              <p className="text-green-600 text-center mt-2">
+                Message sent successfully!
+              </p>
+            )}
           </form>
         </div>
 
@@ -220,7 +238,6 @@ export default function ContactPage() {
                   </label>
                 ))}
               </div>
-
               {errors.rating && (
                 <p className="mt-1 text-red-600 text-sm text-center">
                   {errors.rating}
