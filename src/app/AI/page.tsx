@@ -145,8 +145,8 @@ export default function ComingSoon() {
             </div>
             {/* Message bubble */}
             <div className="bg-orange-200 px-4 py-3 rounded-2xl rounded-br-none shadow max-w-full sm:max-w-3xl text-base leading-normal text-orange-900 break-words">
-              Your appointment is confirmed! I've sent a reminder to your email
-              and you will get a notification 1 hour before.
+              Your appointment is confirmed! I have sent a reminder to your
+              email and you will get a notification 1 hour before.
               <div className="mt-3 text-sm italic">
                 Looking forward to helping you again!
               </div>

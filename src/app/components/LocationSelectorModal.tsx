@@ -2,7 +2,7 @@
 "use client";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const containerStyle = {
   width: "100%",

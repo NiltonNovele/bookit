@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, MouseEventHandler, ReactNode } from "react";
 import {
   Menu,
   X,
@@ -101,6 +101,16 @@ export const Header = () => {
   );
 };
 
+type NavItemProps = {
+  href: string;
+  icon: ReactNode;
+  label: string;
+  className?: string;
+  textClass?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  block?: boolean;
+};
+
 const NavItem = ({
   href,
   icon,
@@ -109,7 +119,7 @@ const NavItem = ({
   textClass = "",
   onClick,
   block = false,
-}) => (
+}: NavItemProps) => (
   <Link
     href={href}
     onClick={onClick}

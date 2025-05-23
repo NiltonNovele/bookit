@@ -5,7 +5,7 @@ export default function ContactPage() {
   // Form states
   const [contact, setContact] = useState({ name: "", email: "", message: "" });
   const [feedback, setFeedback] = useState({ rating: "", comments: "" });
-  const [contactSent, setContactSent] = useState(false);
+  const [setContactSent] = useState(false);
   const [feedbackSent, setFeedbackSent] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 

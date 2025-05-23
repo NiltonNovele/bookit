@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Hero } from "./components/Hero";
 import { How } from "./components/How";
 import SearchBar from "./components/SearchBar";

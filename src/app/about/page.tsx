@@ -5,7 +5,6 @@ import { Accordion, AccordionItem } from "@radix-ui/react-accordion";
 import {
   Rocket,
   Users,
-  BookOpenText,
   MessageCircle,
   FileText,
   ChevronDown,
@@ -67,8 +66,8 @@ const AboutPage = () => {
           <p className="text-gray-700 max-w-3xl mx-auto text-lg">
             Born in Cape Town, BookIt was crafted by young African students who
             believe booking a service should be as easy as sending a message.
-            Whether you're in the Kaap Stad or Jo'burg — we bridge the gap
-            between you and what you need.
+            Whether you are in Kaapstad or Joburg — we bridge the gap between
+            you and what you need.
           </p>
           <div className="w-full h-64 rounded-xl bg-orange-100 shadow-inner flex items-center justify-center mt-6">
             [ Hero Image / Banner Placeholder ]
