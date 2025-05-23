@@ -69,8 +69,14 @@ const AboutPage = () => {
             Whether you are in Kaapstad or Joburg — we bridge the gap between
             you and what you need.
           </p>
-          <div className="w-full h-64 rounded-xl bg-orange-100 shadow-inner flex items-center justify-center mt-6">
-            [ Hero Image / Banner Placeholder ]
+          <div className="w-full h-90 rounded-xl bg-orange-100 shadow-inner flex items-center justify-center mt-6 relative">
+            <Image
+              src="/banner.jpg"
+              alt="Hero Banner"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-xl"
+            />
           </div>
         </motion.div>
       </section>
@@ -89,13 +95,20 @@ const AboutPage = () => {
           <h2 className="text-4xl font-bold text-orange-600">
             Meet the Founders
           </h2>
-          <p className="text-gray-700 max-w-xl mx-auto">
-            Driven by curiosity, design, and a mission to empower service
-            providers across Africa.
+
+          {/* About Us description */}
+          <p className="text-gray-700 max-w-2xl mx-auto mt-4">
+            We are a passionate team committed to revolutionizing service
+            delivery across Africa. By blending technology and design, our app
+            empowers providers to connect, manage, and grow their businesses
+            efficiently.
           </p>
-          <div className="flex flex-wrap justify-center gap-12 pt-10">
-            <div className="text-center space-y-2">
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+
+          <div className="flex flex-col gap-16 pt-12 max-w-4xl mx-auto">
+            {/* Founder 1 */}
+            <div className="flex items-center gap-6 text-left">
+              {/* Image */}
+              <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg flex-shrink-0">
                 <Image
                   src="/nilton.jpeg"
                   alt="Nilton Novele"
@@ -104,22 +117,71 @@ const AboutPage = () => {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h4 className="text-lg font-bold">Nilton Novele</h4>
-              <p className="text-sm text-gray-600">CTO</p>
+
+              {/* Text + quote + LinkedIn */}
+              <div>
+                <h4 className="text-lg font-bold">Nilton Novele</h4>
+                <p className="text-sm text-gray-600 mb-2">CTO</p>
+                <p className="text-gray-700 mb-4 max-w-md">
+                  Nilton is a seasoned tech visionary with a passion for
+                  building scalable solutions that empower businesses. He leads
+                  the technical development to ensure the app is robust and
+                  user-friendly.
+                </p>
+                <blockquote className="bg-orange-50 border-l-4 border-orange-400 p-4 italic text-orange-700 shadow-sm rounded mb-4 max-w-md">
+                  “Our vision is to create seamless tech that empowers service
+                  providers to focus on what matters most — delivering
+                  exceptional value to their clients.”
+                </blockquote>
+                <a
+                  href="https://www.linkedin.com/in/nilton-novele-82211821b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+                  aria-label="Nilton Novele LinkedIn"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
 
-            <div className="text-center space-y-2">
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+            {/* Founder 2 */}
+            <div className="flex items-center gap-6 text-left">
+              {/* Image */}
+              <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg flex-shrink-0">
                 <Image
                   src="/jumpex.jpg"
-                  alt="Partner Name"
+                  alt="Henzel Tibana"
                   width={128}
                   height={128}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h4 className="text-lg font-bold">Henzel Tibana</h4>
-              <p className="text-sm text-gray-600">COO</p>
+
+              {/* Text + quote + LinkedIn */}
+              <div>
+                <h4 className="text-lg font-bold">Henzel Tibana</h4>
+                <p className="text-sm text-gray-600 mb-2">COO</p>
+                <p className="text-gray-700 mb-4 max-w-md">
+                  Henzel brings a strategic mindset and operational expertise,
+                  focusing on sustainable growth and delivering value to service
+                  providers across Africa.
+                </p>
+                <blockquote className="bg-orange-50 border-l-4 border-orange-400 p-4 italic text-orange-700 shadow-sm rounded mb-4 max-w-md">
+                  “We built this app with a mission to simplify operations for
+                  African service providers, helping them grow sustainably in a
+                  competitive market.”
+                </blockquote>
+                <a
+                  href="https://www.linkedin.com/in/henzel-tibana-a07068211/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+                  aria-label="Henzel Tibana LinkedIn"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -147,9 +209,6 @@ const AboutPage = () => {
                 <li>No login, no hassle — just book!</li>
                 <li>Confirmation via SMS & Email</li>
               </ul>
-              <div className="h-48 bg-orange-200 rounded-lg flex items-center justify-center text-orange-600">
-                [ Screenshot - Client View ]
-              </div>
             </div>
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-2xl text-orange-500 font-semibold">
@@ -161,9 +220,6 @@ const AboutPage = () => {
                 <li>Use our dashboard to manage traffic</li>
                 <li>Connect with clients via WhatsApp</li>
               </ul>
-              <div className="h-48 bg-orange-200 rounded-lg flex items-center justify-center text-orange-600">
-                [ Screenshot - Provider Dashboard ]
-              </div>
             </div>
           </div>
         </motion.div>
@@ -188,8 +244,62 @@ const AboutPage = () => {
             it all. Seamlessly connects to WhatsApp so service providers can
             reply fast.
           </p>
-          <div className="h-64 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600">
-            [ BookAI + WhatsApp Screenshot ]
+
+          {/* Fancy 4-picture arrangement */}
+          <div className="relative max-w-4xl mx-auto mt-10 h-64 sm:h-80 grid grid-cols-3 grid-rows-2 gap-4 select-none overflow-hidden">
+            {/* Image 1: spans 2 rows */}
+            <div className="col-span-2 row-span-2 relative rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/sc1.jpg"
+                alt="Screenshot 1"
+                fill
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                sizes="(max-width: 768px) 100vw, 600px"
+                priority
+              />
+            </div>
+
+            {/* Image 2 */}
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/sc2.png"
+                alt="Screenshot 2"
+                fill
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                sizes="(max-width: 768px) 100vw, 300px"
+                priority
+              />
+            </div>
+
+            {/* Image 3 */}
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/sc.jpg"
+                alt="Screenshot 3"
+                fill
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                sizes="(max-width: 768px) 100vw, 300px"
+                priority
+              />
+            </div>
+
+            {/* Image 4: positioned overlapping bottom right */}
+            <div
+              className="absolute bottom-0 right-0 w-40 h-40 rounded-xl overflow-hidden shadow-2xl border-4 border-white"
+              style={{ transform: "translate(25%, 25%)" }}
+            >
+              <Image
+                src="/ai.jpg"
+                alt="Screenshot 4"
+                fill
+                style={{ objectFit: "cover" }}
+                draggable={false}
+                priority
+              />
+            </div>
           </div>
         </motion.div>
       </section>
