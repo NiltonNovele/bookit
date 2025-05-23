@@ -37,7 +37,7 @@ export const Header = () => {
           <NavItem href="/AI" icon={<Brain size={16} />} label="BookAI" />
           <NavItem href="/contact" icon={<Mail size={16} />} label="Contact" />
           <NavItem
-            href="/login"
+            href="https://dashboard.bookit.niltonnovele.com"
             icon={<LogIn size={16} />}
             label="Manage your service"
             className="font-semibold underline"
