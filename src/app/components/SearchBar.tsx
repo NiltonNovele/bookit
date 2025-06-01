@@ -5,6 +5,7 @@ import { Search as SearchIcon, Brain } from "lucide-react";
 import Link from "next/link";
 import LocationSelectorModal from "./LocationSelectorModal";
 import { serviceCategories } from "./serviceCategories";
+import BookingModal from "./BookingModal";
 
 interface ExpandableServiceDropdownProps {
   value: string;
@@ -151,6 +152,7 @@ const SearchBar = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [results, setResults] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(false);
+  const [selectedProvider, setSelectedProvider] = useState<any | null>(null);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -320,7 +322,10 @@ const SearchBar = () => {
             <p className="text-sm text-gray-600">{provider.category}</p>
             <p className="text-gray-700">{provider.description}</p>
             <p className="text-gray-500 text-sm mb-2">{provider.location}</p>
-            <button className="mt-2 inline-block px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition text-sm">
+            <button
+              onClick={() => setSelectedProvider(provider)}
+              className="mt-2 inline-block px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition text-sm"
+            >
               Book Now
             </button>
           </li>
@@ -358,6 +363,12 @@ const SearchBar = () => {
           </ul>
         )}
       </section>
+      {selectedProvider && (
+        <BookingModal
+          provider={selectedProvider}
+          onClose={() => setSelectedProvider(null)}
+        />
+      )}
     </section>
   );
 };
